@@ -135,6 +135,9 @@
   <node name="rosserial_python" pkg="rosserial_python" type="serial_node.py"
     args="_port:=/dev/versavis _baud:=250000" respawn="true" output="screen" />
 
+<!-- Initialize Cam0. Use if only IMU is connected -->
+<node pkg="rostopic" type="rostopic" name="initializer_cam0" args="pub -r 10 /versavis/cam0/init std_msgs/Bool {'data: True'}"/>
+
   <!-- Reset VersaVIS with ros message -->
   <node pkg="rostopic" type="rostopic" name="resetter"
     args="pub /versavis/reset std_msgs/Bool false --once" output="screen" />
