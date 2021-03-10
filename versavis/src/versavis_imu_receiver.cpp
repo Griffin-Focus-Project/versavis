@@ -63,9 +63,9 @@ public:
     imu_msg.orientation_covariance[7] = 0.0;
     imu_msg.orientation_covariance[8] = 0;
     // --- Angular Velocity.
-    imu_msg.angular_velocity.x = gyroScale(imu_micro_msg.gx);
-    imu_msg.angular_velocity.y = gyroScale(imu_micro_msg.gy);
-    imu_msg.angular_velocity.z = gyroScale(imu_micro_msg.gz);
+    imu_msg.angular_velocity.x = imu_micro_msg.gx;//gyroScale(imu_micro_msg.gx);
+    imu_msg.angular_velocity.y = imu_micro_msg.gy;//gyroScale(imu_micro_msg.gy);
+    imu_msg.angular_velocity.z = imu_micro_msg.gz;//gyroScale(imu_micro_msg.gz);
     imu_msg.angular_velocity_covariance[0] = imu_gyro_covariance_;
     imu_msg.angular_velocity_covariance[1] = 0.0;
     imu_msg.angular_velocity_covariance[2] = 0.0;
@@ -76,9 +76,9 @@ public:
     imu_msg.angular_velocity_covariance[7] = 0.0;
     imu_msg.angular_velocity_covariance[8] = imu_gyro_covariance_;
     // --- Linear Acceleration.
-    imu_msg.linear_acceleration.x = accelScale(imu_micro_msg.ax);
-    imu_msg.linear_acceleration.y = accelScale(imu_micro_msg.ay);
-    imu_msg.linear_acceleration.z = accelScale(imu_micro_msg.az);
+    imu_msg.linear_acceleration.x = imu_micro_msg.ax;//accelScale(imu_micro_msg.ax);
+    imu_msg.linear_acceleration.y = imu_micro_msg.ay;//accelScale(imu_micro_msg.ay);
+    imu_msg.linear_acceleration.z = imu_micro_msg.az;//accelScale(imu_micro_msg.az);
     imu_msg.linear_acceleration_covariance[0] = imu_acceleration_covariance_;
     imu_msg.linear_acceleration_covariance[1] = 0.0;
     imu_msg.linear_acceleration_covariance[2] = 0.0;
