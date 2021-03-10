@@ -131,12 +131,12 @@
   <node name="relay0" pkg="topic_tools" type="relay" args="/$(arg camera_name)_$(arg camera_type)_0/camera_info /versavis/cam0/camera_info" required="true" output="screen"/>
   <node name="relay1" pkg="topic_tools" type="relay" args="/$(arg camera_name)_$(arg camera_type)_1/camera_info /versavis/cam1/camera_info" required="true" output="screen"/>
 
-  <!-- Run VersaVIS link. -->
+<!-- Initialize CAM 0, use if only IMU is connected -->
+<node pkg="rostopic" type="rostopic" name="initializer_cam0" args="pub -r 10 /versavis/cam0/init std_msgs/Bool {'data: True'}" />
+
+<!-- Run VersaVIS link. -->
   <node name="rosserial_python" pkg="rosserial_python" type="serial_node.py"
     args="_port:=/dev/versavis _baud:=250000" respawn="true" output="screen" />
-
-<!-- Initialize Cam0. Use if only IMU is connected -->
-<node pkg="rostopic" type="rostopic" name="initializer_cam0" args="pub -r 10 /versavis/cam0/init std_msgs/Bool {'data: True'}"/>
 
   <!-- Reset VersaVIS with ros message -->
   <node pkg="rostopic" type="rostopic" name="resetter"

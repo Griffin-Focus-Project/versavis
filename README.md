@@ -1,5 +1,5 @@
 # Griffin Focus Project
-Adapted VersaVIS package for PrisMAV. Using VN100.
+Adapted VersaVIS software to use with PrisMAV using a VN100 IMU. Build and installed like it is described below (with some fixes, see GDrive). And then copied the folder into PrisMAV workspace structure.
 
 # VersaVIS -- An Open Versatile Multi-Camera Visual-Inertial Sensor Suite
 VersaVIS provides a complete, open-source hardware, firmware and software bundle to perform time synchronization of multiple cameras with an IMU featuring exposure compensation, host clock translation and independent and stereo camera triggering.

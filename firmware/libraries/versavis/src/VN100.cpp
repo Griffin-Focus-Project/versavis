@@ -49,24 +49,29 @@ VN100::~VN100() {
 }
 
 void VN100::setup() {
-  DEBUG_PRINTLN((topic_ + " (VN100.cpp): Setup.").c_str());
+	DEBUG_PRINTLN((topic_ + " (VN100.cpp): Setup.").c_str());
   // Start Serial1 for IMU communication
   Serial1.begin(921600, SERIAL_8N1);
   delay(20);
   Serial.setTimeout(2);
-
+	
+	DEBUG_PRINTLN((topic_ + " (VN100.cpp): Setup 1.").c_str());
   // Check whether IMU is setup correctly. Configuration is done on VectorNav
   // Control Center software.
   Serial1.print("$VNRRG,00*XX\r\n");
+	DEBUG_PRINTLN((topic_ + " (VN100.cpp): User tag command sent.").c_str());
   delay(20);
   byte response[100];
   Serial1.readBytes(response, Serial1.available());
+	DEBUG_PRINTLN((char *)response);
 
+	DEBUG_PRINTLN((topic_ + " (VN100.cpp): Setup 2.").c_str());
   // Check that "User Tag" is set to 7665727361766973 (HEX for versavis).
   if (strcmp((char *)response, "$VNRRG,00,7665727361766973*51\r\n") != 0) {
     error((topic_ + " (VN100.cpp): IMU is not setup correctly.").c_str(), 11);
   }
   Imu::setupPublisher();
+DEBUG_PRINTLN((topic_ + " (VN100.cpp): Setup Done.").c_str());
 }
 
 ////////////////////////////////////////////////////////////////////////////

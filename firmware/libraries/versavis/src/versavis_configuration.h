@@ -58,6 +58,6 @@
 /* ----- Debug mode. ----- */
 // Define whether debug mode should be used. This provides output on the
 // standard console but invalidates ROS communication.
-// #define DEBUG
+//#define DEBUG
 
 #endif // versavis_configuration_h
