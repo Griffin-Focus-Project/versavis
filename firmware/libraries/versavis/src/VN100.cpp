@@ -110,12 +110,12 @@ int16_t *VN100::readImuData() {
     a_z_.b[i] = in_[24 + i];
   }
   static int16_t scaled_sensor_data[7];
-  scaled_sensor_data[1] = W_x_.f ;//* imu_gyro_sensitivity_;
-  scaled_sensor_data[2] = W_y_.f ;//* imu_gyro_sensitivity_;
-  scaled_sensor_data[3] = W_z_.f ;//* imu_gyro_sensitivity_;
-  scaled_sensor_data[4] = a_x_.f ;//* imu_accelerator_sensitivity_;
-  scaled_sensor_data[5] = a_y_.f ;//* imu_accelerator_sensitivity_;
-  scaled_sensor_data[6] = a_z_.f ;//* imu_accelerator_sensitivity_;
+  scaled_sensor_data[1] = W_x_.f*1000.0 ;//* imu_gyro_sensitivity_;
+  scaled_sensor_data[2] = W_y_.f*1000.0 ;//* imu_gyro_sensitivity_;
+  scaled_sensor_data[3] = W_z_.f*1000.0 ;//* imu_gyro_sensitivity_;
+  scaled_sensor_data[4] = a_x_.f*1000.0 ;//* imu_accelerator_sensitivity_;
+  scaled_sensor_data[5] = a_y_.f*1000.0 ;//* imu_accelerator_sensitivity_;
+  scaled_sensor_data[6] = a_z_.f*1000.0 ;//* imu_accelerator_sensitivity_;
   return (scaled_sensor_data); // Return pointer with data
 }
 
