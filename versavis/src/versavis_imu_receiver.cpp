@@ -37,13 +37,13 @@ public:
 
   void imuCallback(const versavis::ImuMicro &imu_micro_msg) {
     ROS_INFO_ONCE("Received first IMU message.");
-    if (imu_micro_msg.time.data.toNSec() < last_msg_time_.toNSec()) {
+    /*if (imu_micro_msg.time.data.toNSec() < last_msg_time_.toNSec()) {
       ROS_WARN(
           "IMU message is not strictly increasing (%ld vs %ld). Dropping this "
           "message. This is normal during startup (< 1 min).",
           imu_micro_msg.time.data.toNSec(), last_msg_time_.toNSec());
       return;
-    }
+    }*/
     last_msg_time_ = imu_micro_msg.time.data;
     sensor_msgs::Imu imu_msg;
 
